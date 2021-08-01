@@ -30,7 +30,7 @@ describe('Room test', () => {
           .send({
             name: 'Room 01',
             password: '',
-            maxParticipants: 10
+            max_participants: 10
           });
         expect(response.status).toBe(201);
       });
@@ -42,7 +42,7 @@ describe('Room test', () => {
           .set('Authorization', 'Bearer 1234567890')
           .send({
             name: 'Room 01',
-            maxParticipants: 10
+            max_participants: 10
           });
         expect(response.status).toBe(400);
       });
@@ -57,7 +57,7 @@ describe('Room test', () => {
           .send({
             name: 'Room 01',
             password: 'password',
-            maxParticipants: 10
+            max_participants: 10
           });
 
         const joinRoom = await request(app)
@@ -71,14 +71,14 @@ describe('Room test', () => {
         expect(joinRoom.status).toBe(200);
       });
 
-      it('should be able to join in a room without limit if the room maxParticipants is 0', async () => {
+      it('should be able to join in a room without limit if the room max_participants is 0', async () => {
         const room = await request(app)
           .post('/rooms')
           .set('Authorization', `Bearer ${token}`)
           .send({
             name: 'Room 01',
             password: 'password',
-            maxParticipants: 0
+            max_participants: 0
           });
 
         const user1 = await request(app)
@@ -139,7 +139,7 @@ describe('Room test', () => {
           .send({
             name: 'Room 01',
             password: 'password',
-            maxParticipants: 10
+            max_participants: 10
           });
 
         const joinRoom = await request(app)
@@ -160,7 +160,7 @@ describe('Room test', () => {
           .send({
             name: 'Room 01',
             password: '',
-            maxParticipants: 10
+            max_participants: 10
           });
 
         const joinRoom = await request(app)
@@ -181,7 +181,7 @@ describe('Room test', () => {
           .send({
             name: 'Room 01',
             password: 'password',
-            maxParticipants: 3
+            max_participants: 3
           });
 
         const user1 = await request(app)

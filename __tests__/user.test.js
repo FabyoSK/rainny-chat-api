@@ -1,7 +1,6 @@
 const request = require('supertest');
-const server = require('../src/http');
+const app = require('../src/server');
 
-const { http: app } = server;
 const { default: removeAllCollections } = require('./__helpers__/clearDatabase');
 
 describe('User test', () => {
