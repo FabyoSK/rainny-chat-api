@@ -1,7 +1,10 @@
 import { Router } from 'express';
+import RoomController from './app/controllers/RoomController'
 
 const routes = new Router();
 
-routes.get('/', (req, res) => res.json({ message: 'Welcome to Omni CLI' }));
+const roomController = new RoomController();
+
+routes.get('/rooms', roomController.index);
 
 export default routes;
