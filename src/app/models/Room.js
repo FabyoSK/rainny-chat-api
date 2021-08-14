@@ -15,7 +15,7 @@ const RoomSchema = new Schema({
     type: String,
     required: true
   },
-  owner_id: {
+  owner: {
     type: String,
     ref: 'User',
     required: true

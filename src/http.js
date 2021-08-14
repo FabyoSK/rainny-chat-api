@@ -26,4 +26,11 @@ app.use(routes);
 app.use(AuthorizationMiddleware.authorize);
 app.use(protectedRoutes);
 
+app.use(async (err, req, res, next) => {
+  if (process.env.NODE_ENV === 'development') {
+    return res.status(500).json(err);
+  }
+  return res.status(500).json({ error: 'Internal server error' });
+});
+
 export { http, io };

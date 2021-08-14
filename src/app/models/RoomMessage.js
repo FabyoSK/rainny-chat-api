@@ -7,12 +7,12 @@ const RoomMessageSchema = new Schema({
     type: String,
     required: true
   },
-  sender_id: {
+  sender: {
     type: String,
     ref: 'User',
     required: true
   },
-  receiver_id: {
+  receiver: {
     type: String,
     ref: 'Room',
     required: true

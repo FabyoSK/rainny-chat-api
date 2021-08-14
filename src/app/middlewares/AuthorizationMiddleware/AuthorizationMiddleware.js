@@ -13,6 +13,7 @@ export async function authorize(req, res, next) {
         .status(401)
         .json({ error: 'Unauthorized' });
     }
+
     req.middleware = {
       user_id: user._id
     };
